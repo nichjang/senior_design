@@ -40,21 +40,18 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   sudo apt-get -y install ros-kinetic-ardrone-autonomy freeglut3-dev liblapack-dev libopenblas-dev
 
   # Link this project to your catkin workspace.
-  unlink ~/catkin_ws/src
   ln -s $PROJECT_DIR_SRC ~/catkin_ws/src
 
   # Needed for TI mmWave Driver
   sudo adduser $USER dialout
 
-  # Add some convenient bash commands.
-  echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
-  bash ~/.bashrc
-
   # Build catkin workspace.
+  source /opt/ros/kinetic/setup.bash
   cd ~/catkin_ws
   catkin_make
 
   # Setup catkin 
+  echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
   echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   bash ~/.bashrc
 else
