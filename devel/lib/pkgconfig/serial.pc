@@ -1,8 +1,0 @@
-prefix=/home/nicholas/catkin_ws/devel
-
-Name: serial
-Description: Description of serial
-Version: 1.2.1
-Cflags: -I/home/nicholas/catkin_ws/src/serial/include
-Libs: -L/home/nicholas/catkin_ws/devel/lib -lserial -lrt -lpthread
-Requires: 
