@@ -1,0 +1,8 @@
+prefix=/home/nicholas/catkin_ws/devel
+
+Name: nanomap_ros
+Description: Description of nanomap_ros
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/nicholas/catkin_ws/devel/lib 
+Requires: 

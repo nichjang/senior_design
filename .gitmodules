@@ -1,0 +1,12 @@
+[submodule "src/geometry2"]
+	path = src/geometry2
+	url = https://github.com/ros/geometry2
+[submodule "src/nanomap_ros"]
+	path = src/nanomap_ros
+	url = https://github.com/peteflorence/nanomap_ros.git
+[submodule "src/serial"]
+	path = src/serial
+	url = https://github.com/wjwwood/serial.git
+[submodule "src/gazebo_radar_plugin"]
+	path = src/gazebo_radar_plugin
+	url = https://github.com/ros-simulation/gazebo_radar_plugin.git

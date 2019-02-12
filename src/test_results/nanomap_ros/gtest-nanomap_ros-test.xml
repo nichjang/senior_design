@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="5" failures="0" disabled="0" errors="0" timestamp="2019-02-11T13:15:09" time="0.003" name="AllTests">
+  <testsuite name="AddNewData" tests="2" failures="0" disabled="0" errors="0" time="0.001">
+    <testcase name="VerifyAddingEdges" status="run" time="0.001" classname="AddNewData" />
+    <testcase name="VerifyCanBufferPointClouds" status="run" time="0" classname="AddNewData" />
+  </testsuite>
+  <testsuite name="UpdatePoses" tests="2" failures="0" disabled="0" errors="0" time="0.001">
+    <testcase name="VerifyCanUpdateAll" status="run" time="0.001" classname="UpdatePoses" />
+    <testcase name="VerifyNoJump" status="run" time="0" classname="UpdatePoses" />
+  </testsuite>
+  <testsuite name="SetParams" tests="1" failures="0" disabled="0" errors="0" time="0.001">
+    <testcase name="CanSetHistoryLength" status="run" time="0.001" classname="SetParams" />
+  </testsuite>
+</testsuites>

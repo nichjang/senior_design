@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: tf2_kdl
+Version: 0.5.20
+Summary: KDL binding for tf2
+Home-page: http://ros.org/wiki/tf2
+Author: Tully Foote
+Author-email: tfoote@osrfoundation.org
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
