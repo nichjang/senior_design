@@ -10,3 +10,6 @@
 [submodule "src/gazebo_radar_plugin"]
 	path = src/gazebo_radar_plugin
 	url = https://github.com/ros-simulation/gazebo_radar_plugin.git
+[submodule "src/tum_simulator"]
+	path = src/tum_simulator
+	url = https://github.com/angelsantamaria/tum_simulator.git
