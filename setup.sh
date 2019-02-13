@@ -42,6 +42,9 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Link this project to your catkin workspace.
   ln -s $PROJECT_DIR_SRC ~/catkin_ws/src
 
+  # Install TI mmWave dependencies.
+  sudo apt-get -y install ros-kinetic-tf2-sensor-msgs ros-kinetic-tf2-bullet
+
   # Needed for TI mmWave Driver
   sudo adduser $USER dialout
 
@@ -53,7 +56,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Setup catkin 
   echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
   echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
-  bash ~/.bashrc
+  source ~/.bashrc
 else
   echo "OS not supported"
 fi
