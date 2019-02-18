@@ -1,0 +1,34 @@
+<gazebo reference="teamH8_link">
+    <sensor type="ray" name="sensor">
+      <pose>0 0.15 0.06 -1.5708 4.7123889 0</pose>
+      <visualize>true</visualize>
+      <update_rate>30</update_rate>
+      <ray>
+        <noise>
+
+    	    <!-- Guassian Noise -->
+   	    	<type> gaussian </type>
+   	    	<mean> 0.0 </mean>
+    	    <stddev> 0.03 </stddev>
+
+  		</noise>
+        <scan>
+          <horizontal>
+            <samples>10</samples>
+            <resolution>1</resolution>
+            <min_angle>-0.523599</min_angle>
+            <max_angle>0.523599</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.0</min>
+          <max>40.0</max>
+          <resolution>0.05</resolution>
+        </range>
+      </ray>
+      <plugin name="teamH8_plugin" filename="libteamH8.so">
+        <topicName>/teamH8/laser/scan</topicName>
+        <frameName>teamH8_link</frameName>
+      </plugin>
+    </sensor>
+  </gazebo>
