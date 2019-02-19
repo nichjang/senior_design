@@ -92,6 +92,14 @@
     <resolution>0.05</resolution>
   </range>
 </ray>
+<controller:gazebo_ros_laser name="ros_ray_sensor_controller" plugin="libgazebo_ros_laser.so">
+            <gaussianNoise>0.005</gaussianNoise>
+            <alwaysOn>true</alwaysOn>
+            <updateRate>30.0</updateRate>
+            <topicName>ray_scan</topicName>
+            <frameName>ray_model</frameName>
+            <interface:laser name="ros_ray_sensor_iface" />
+         </controller:gazebo_ros_laser>
 </sensor>
   </link>
 

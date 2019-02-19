@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named laser
+
+# Build rule for target.
+laser: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 laser
+.PHONY : laser
+
+# fast build rule for target.
+laser/fast:
+	$(MAKE) -f CMakeFiles/laser.dir/build.make CMakeFiles/laser.dir/build
+.PHONY : laser/fast
+
+#=============================================================================
 # Target rules for targets named teamH8
 
 # Build rule for target.
@@ -254,6 +267,19 @@ rosgraph_msgs_generate_messages_nodejs/fast:
 .PHONY : rosgraph_msgs_generate_messages_nodejs/fast
 
 #=============================================================================
+# Target rules for targets named laser_plugin
+
+# Build rule for target.
+laser_plugin: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 laser_plugin
+.PHONY : laser_plugin
+
+# fast build rule for target.
+laser_plugin/fast:
+	$(MAKE) -f CMakeFiles/laser_plugin.dir/build.make CMakeFiles/laser_plugin.dir/build
+.PHONY : laser_plugin/fast
+
+#=============================================================================
 # Target rules for targets named rosgraph_msgs_generate_messages_eus
 
 # Build rule for target.
@@ -331,6 +357,36 @@ rosgraph_msgs_generate_messages_py/fast:
 	$(MAKE) -f CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 .PHONY : rosgraph_msgs_generate_messages_py/fast
 
+gazebo_ros_laser.o: gazebo_ros_laser.cpp.o
+
+.PHONY : gazebo_ros_laser.o
+
+# target to build an object file
+gazebo_ros_laser.cpp.o:
+	$(MAKE) -f CMakeFiles/laser.dir/build.make CMakeFiles/laser.dir/gazebo_ros_laser.cpp.o
+	$(MAKE) -f CMakeFiles/laser_plugin.dir/build.make CMakeFiles/laser_plugin.dir/gazebo_ros_laser.cpp.o
+.PHONY : gazebo_ros_laser.cpp.o
+
+gazebo_ros_laser.i: gazebo_ros_laser.cpp.i
+
+.PHONY : gazebo_ros_laser.i
+
+# target to preprocess a source file
+gazebo_ros_laser.cpp.i:
+	$(MAKE) -f CMakeFiles/laser.dir/build.make CMakeFiles/laser.dir/gazebo_ros_laser.cpp.i
+	$(MAKE) -f CMakeFiles/laser_plugin.dir/build.make CMakeFiles/laser_plugin.dir/gazebo_ros_laser.cpp.i
+.PHONY : gazebo_ros_laser.cpp.i
+
+gazebo_ros_laser.s: gazebo_ros_laser.cpp.s
+
+.PHONY : gazebo_ros_laser.s
+
+# target to generate assembly for a file
+gazebo_ros_laser.cpp.s:
+	$(MAKE) -f CMakeFiles/laser.dir/build.make CMakeFiles/laser.dir/gazebo_ros_laser.cpp.s
+	$(MAKE) -f CMakeFiles/laser_plugin.dir/build.make CMakeFiles/laser_plugin.dir/gazebo_ros_laser.cpp.s
+.PHONY : gazebo_ros_laser.cpp.s
+
 libteamH8_plugin.o: libteamH8_plugin.cc.o
 
 .PHONY : libteamH8_plugin.o
@@ -391,6 +447,7 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
+	@echo "... laser"
 	@echo "... teamH8"
 	@echo "... teamH8_plugin"
 	@echo "... std_msgs_generate_messages_lisp"
@@ -404,12 +461,16 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... rosgraph_msgs_generate_messages_nodejs"
 	@echo "... edit_cache"
+	@echo "... laser_plugin"
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... rosgraph_msgs_generate_messages_lisp"
 	@echo "... std_msgs_generate_messages_py"
 	@echo "... rosgraph_msgs_generate_messages_py"
+	@echo "... gazebo_ros_laser.o"
+	@echo "... gazebo_ros_laser.i"
+	@echo "... gazebo_ros_laser.s"
 	@echo "... libteamH8_plugin.o"
 	@echo "... libteamH8_plugin.i"
 	@echo "... libteamH8_plugin.s"
