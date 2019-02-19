@@ -10,7 +10,6 @@ find_package(catkin REQUIRED COMPONENTS
 find_package(gazebo REQUIRED)
 
 link_directories(${GAZEBO_LIBRARY_DIRS})
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} ${GAZEBO_CXX_FLAGS}")
 include_directories(
   ./include
   ${std_msgs_INCLUDE_DIRS}
@@ -20,7 +19,9 @@ include_directories(
 )
 
 add_library(laser_plugin src/gazebo_ros_laser.cpp)
-target_link_libraries(laser_plugin ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+target_link_libraries(${PROJECT_NAME} ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
+
+
 
 # Build our plugin
 add_library(teamH8_plugin src/libteamH8_plugin.cc)
@@ -28,6 +29,9 @@ target_link_libraries(teamH8_plugin
   ${GAZEBO_LIBRARIES}
   ${roscpp_LIBRARIES}
 )
+
+# Build the stand-alone ltest program
+add_executable(teamH8 teamH8.cc)
 
 catkin_package(
 #  INCLUDE_DIRS include
