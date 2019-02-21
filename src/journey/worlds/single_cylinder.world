@@ -164,5 +164,12 @@
         <view_controller>orbit</view_controller>
       </camera>
     </gui>
+
+    <model name="radar_demo">
+      <include>
+            <static>true</static>
+        <uri>model://radar</uri>
+      </include>
+    </model>
   </world>
 </sdf>

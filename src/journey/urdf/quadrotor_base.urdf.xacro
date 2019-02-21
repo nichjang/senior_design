@@ -12,7 +12,6 @@ xmlns:xacro="http://ros.org/wiki/xacro"
   <!-- Main quadrotor link -->
   <xacro:macro name="quadrotor_base_macro" params="sim_name">
     <link name="base_link">
-
       <visual>
         <origin xyz="0 0 0" rpy="0 0 0" />
         <geometry>
@@ -26,7 +25,6 @@ xmlns:xacro="http://ros.org/wiki/xacro"
           <mesh filename="package://cvg_sim_gazebo/meshes/quadrotor/quadrotor_4.stl"/>
         </geometry>
       </collision>
-
     </link>
 
     <link name="dummy_link">
@@ -42,25 +40,23 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <child link="dummy_link"/>
     </joint>
 
+
     <gazebo reference="base_link">
-      <turnGravityOff>false</turnGravityOff>
-
-      <sensor type="contact" name="/${sim_name}/collision">
-        <always_on>true</always_on>
-        <update_rate>10</update_rate>
-        <contact>
-          <collision>base_link_collision</collision>
-        </contact>
-        <plugin name="bumper_plugin" filename="libgazebo_ros_bumper.so">
-          <bumperTopicName>${sim_name}/crash_sensor</bumperTopicName>
-          <frameName>${sim_name}/crash_sensor</frameName>
-        </plugin>
-      </sensor>
+        <sensor name="mode_c_radar" type="logical_camera">
+            <visualize>true</visualize>
+            <always_on>true</always_on>
+            <update_rate>10</update_rate>
+            <plugin name="mode_c_radar" filename="libModeCRadarPlugin.so">
+                <position_noise>
+                    <noise>
+                        <type>gaussian</type>
+                        <mean>0.0</mean>
+                        <stddev>0.001</stddev>
+                    </noise>
+                </position_noise>
+            </plugin>
+        </sensor>
     </gazebo>
-
-    <!-- Radar sensor -->
-    <xacro:include filename="$(find cvg_sim_gazebo)/urdf/sensors/radar_sensor.urdf.xacro" />
-    <xacro:radar/>
 
     <!-- Gazebo Plugins -->
     <quadrotor_plugins/>

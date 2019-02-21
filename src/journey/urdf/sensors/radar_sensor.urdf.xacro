@@ -4,100 +4,46 @@ xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controlle
 xmlns:xacro="http://ros.org/wiki/xacro">
 <xacro:macro name="radar">
 
-    <!-- <link name="rad_link">
-      <inertial>
-        <mass value="0.001" />
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <inertia ixx="0.000000017" ixy="0" ixz="0" iyy="0.000000017" iyz="0" izz="0.000000017" />
-      </inertial>
-      <visual>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-         <mesh filename="package://cvg_sim_gazebo/meshes/kinect_camera/kinect_camera_simple.dae"/>
-        </geometry>
-      </visual>
-      <collision>
-        <origin xyz="0 0 0" rpy="0 0 0" />
-        <geometry>
-          <box size="0.01 0.01 0.01" />
-        </geometry>
-      </collision>
-    </link> -->
-
-    <plugin name="mode_c_radar" filename="libModeCRadarPlugin.so">
-        <robotNamespace>radar</robotNamespace>
-        <position_noise>
-          <noise>
-            <type>gaussian</type>
-            <mean>0.0</mean>
-            <stddev>0.001</stddev>
-          </noise>
-        </position_noise>
-        <known_model_types>
-          <type>iris</type>
-          <type>delta_wing</type>
-        </known_model_types>
-      </plugin>
-      <link name="radar_mount">
-        <gravity>false</gravity>
-        <inertial>
-          <mass value="0.001" />
-          <origin xyz="0 0 0" rpy="0 0 0" />
-          <inertia ixx="0.000000017" ixy="0" ixz="0" iyy="0.000000017" iyz="0" izz="0.000000017" />
-        </inertial>
-  
-
-        <!-- <collision name="collision">
-          <pose>0 0.02 0 0 0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <uri>model://logical_camera/meshes/camera.dae</uri>
-            </mesh>
-          </geometry>
+     <link name="rad_link">
+        <collision>
+            <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+            </geometry>
         </collision>
-        <visual name="visual">
-          <pose>0 0.02 0 0 0 -1.5708</pose>
-          <geometry>
-            <mesh>
-              <uri>model://logical_camera/meshes/camera.dae</uri>
-            </mesh>
-          </geometry>
-        </visual> -->
-        <sensor name="logical_camera" type="logical_camera">
-          <logical_camera>
-            <near>0.2</near>
-            <far>2.0</far>
-            <horizontal_fov>1.04719755</horizontal_fov>
-            <aspect_ratio>1.778</aspect_ratio>
-          </logical_camera>
 
-          <visualize>true</visualize>
-          <always_on>true</always_on>
-          <update_rate>10</update_rate>
-        </sensor>
-      </link>
+        <visual>
+            <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.05 0.05 0.05"/>
+                <material name="blue"/>
+                <!-- <mesh filename="package://husky_description/meshes/accessories/dummy_camera.dae" /> -->
+            </geometry>
+        </visual>
 
-      <joint name='radar_mount_joint' type='fixed'>
+        <inertial>
+            <mass value="1e-5" />
+            <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
+            <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+        </inertial>
+    </link>
+    
+    <joint name="radar_joint" type="fixed">
+        <axis xyz="0.2 0 0.2" />
+        <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
         <parent link="base_link"/>
-	      <child link="radar_mount"/>
-      </joint>
+        <child link="rad_link"/>
+    </joint>
 
-    <!-- <gazebo reference="rad_link">
+    <gazebo reference="rad_link">
         <sensor name="radar" type="logical_camera">
-            <logical_camera>
-            <near>0.55</near>
-            <far>2.5</far>
-            <horizontal_fov>1.05</horizontal_fov>
-            <aspect_ratio>1.8</aspect_ratio>
-          </logical_camera>
-
-          <visualize>true</visualize>
-          <always_on>true</always_on>
-          <update_rate>10</update_rate>
+            <visualize>true</visualize>
+            <always_on>true</always_on>
+            <update_rate>10</update_rate>
             <plugin name="mode_c_radar" filename="libModeCRadarPlugin.so">
                 <robotNamespace>radar</robotNamespace>
-                <radar_topic_ros>radar_data</radar_topic_ros>
+                <radar_sensor_frameid>rad_link</radar_sensor_frameid>
+                <radar_topic_ros>radar_topic</radar_topic_ros>
                 <position_noise>
                     <noise>
                         <type>gaussian</type>
@@ -111,6 +57,6 @@ xmlns:xacro="http://ros.org/wiki/xacro">
                 </known_model_types>
             </plugin>
         </sensor>
-    </gazebo> -->
+    </gazebo>
 </xacro:macro>
  </robot>
