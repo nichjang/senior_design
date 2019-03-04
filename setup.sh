@@ -45,6 +45,11 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # Install TI mmWave dependencies.
   sudo apt-get -y install ros-kinetic-tf2-sensor-msgs ros-kinetic-tf2-bullet
 
+  # Install other dependencies.
+  sudo apt-get -y install ros-kinetic-control*
+  sudo apt-get -y install ros-kinetic-transmission*
+  sudo apt-get -y install ros-kinetic-joint*
+
   # Needed for TI mmWave Driver
   sudo adduser $USER dialout
 
@@ -54,6 +59,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   catkin_make
 
   # Setup catkin 
+  echo "export GAZEBO_MODEL_PATH=~/catkin_ws/src/journey/models" >> ~/.bashrc
   echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
   echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   source ~/.bashrc
