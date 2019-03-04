@@ -13,3 +13,6 @@
 [submodule "src/tum_simulator"]
 	path = src/tum_simulator
 	url = https://github.com/angelsantamaria/tum_simulator.git
+[submodule "src/laserTest/gazebo_ros_pkgs"]
+	path = src/laserTest/gazebo_ros_pkgs
+	url = https://github.com/ros-simulation/gazebo_ros_pkgs
