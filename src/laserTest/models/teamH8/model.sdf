@@ -37,23 +37,23 @@
 
 <sensor name="sensor_ray" type="ray">
     <visualize>true</visualize>
-    <pose>0.1 0.0 0.0 0.0 0.0 0.0</pose>
+    <pose>0.1 0.0 0.0 -1.57079632679 -1.57079632679 0.0</pose>
     <ray>
       <scan>
         <horizontal>
           <samples>100</samples>
-          <min_angle>0</min_angle>
-          <max_angle>0.26</max_angle>
+          <min_angle>-0.523599</min_angle>
+          <max_angle>0.523599</max_angle>
         </horizontal>
         <vertical>
           <samples>16</samples>
-          <min_angle>-0.2617993878</min_angle>
-          <max_angle>0.2617993878</max_angle>
+          <min_angle>-0.261799</min_angle>
+          <max_angle>0.261799</max_angle>
         </vertical>
       </scan>
       <range>
         <min>0.05</min>
-        <max>20.0</max>
+        <max>80.0</max>
       </range>
     </ray>
     <plugin name="plugin_1" filename="libgazebo_ros_block_laser.so">
