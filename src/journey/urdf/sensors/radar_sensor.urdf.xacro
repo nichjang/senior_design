@@ -28,7 +28,7 @@ xmlns:xacro="http://ros.org/wiki/xacro">
         </inertial>
     </link>
     
-    <joint name="radar_joint" type="fixed">
+    <joint name="sensor_ray" type="ray">
         <axis xyz="0.2 0 0.2" />
         <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
         <parent link="base_link"/>
@@ -36,27 +36,36 @@ xmlns:xacro="http://ros.org/wiki/xacro">
     </joint>
 
     <gazebo reference="rad_link">
-        <sensor name="radar" type="logical_camera">
-            <visualize>true</visualize>
-            <always_on>true</always_on>
-            <update_rate>10</update_rate>
-            <plugin name="mode_c_radar" filename="libModeCRadarPlugin.so">
-                <robotNamespace>radar</robotNamespace>
-                <radar_sensor_frameid>rad_link</radar_sensor_frameid>
-                <radar_topic_ros>radar_topic</radar_topic_ros>
-                <position_noise>
-                    <noise>
-                        <type>gaussian</type>
-                        <mean>0.0</mean>
-                        <stddev>0.001</stddev>
-                    </noise>
-                </position_noise>
-                <known_model_types>
-                    <type>husky</type>
-                    <type>delta_wing</type>
-                </known_model_types>
-            </plugin>
-        </sensor>
+<sensor name="sensor_ray" type="ray">
+    <visualize>true</visualize>
+    <pose>0.1 0.0 0.0 -1.57079632679 -1.57079632679 0.0</pose>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>100</samples>
+          <min_angle>-0.523599</min_angle>
+          <max_angle>0.523599</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>16</samples>
+          <min_angle>-0.261799</min_angle>
+          <max_angle>0.261799</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.05</min>
+        <max>80.0</max>
+      </range>
+    </ray>
+    <plugin name="plugin_1" filename="libgazebo_ros_block_laser.so">
+      <gaussianNoise>0.00</gaussianNoise>
+      <hokuyoMinIntensity>1</hokuyoMinIntensity>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>5</updateRate>
+      <topicName>radar</topicName>
+      <frameName>base_link</frameName>
+    </plugin>
+  </sensor>
     </gazebo>
 </xacro:macro>
  </robot>
