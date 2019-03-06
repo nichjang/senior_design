@@ -54,6 +54,6 @@
   <!-- The export tag contains other, unspecified, tags -->
   <export>
     <!-- Other tools can request additional information be placed here -->
-
+    <gazebo_ros gazebo_model_path="${prefix}/models:${prefix}/models/ray_radar:${prefix}/models/logical_camera_radar"/>
   </export>
 </package>

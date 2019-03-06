@@ -168,7 +168,7 @@
     <model name="radar_demo">
       <include>
             <static>true</static>
-        <uri>model://radar</uri>
+        <uri>model://ray_radar</uri>
       </include>
     </model>
   </world>

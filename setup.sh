@@ -58,8 +58,7 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   cd ~/catkin_ws
   catkin_make
 
-  # Setup catkin 
-  echo "export GAZEBO_MODEL_PATH=~/catkin_ws/src/journey/models:${GAZEBO_MODEL_PATH}" >> ~/.bashrc
+  # Setup catkin
   echo "source /opt/ros/kinetic/setup.bash" >> ~/.bashrc
   echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
   source ~/.bashrc
