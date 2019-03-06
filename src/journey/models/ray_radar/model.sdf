@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<sdf version="1.5">
+
+<model name="teamH8Radar">
+  <!-- Give the base link a unique name -->
+  <link name="AWR1642BOOST">
+
+    <!-- Offset the base by half the lenght of the cylinder -->
+    <pose>0 0 0.2 1.5708 0 1.5708</pose>
+      <inertial>
+      <mass>1.2</mass>
+      <inertia>
+        <ixx>0.001087473</ixx>
+        <iyy>0.001087473</iyy>
+        <izz>0.001092437</izz>
+        <ixy>0</ixy>
+        <ixz>0</ixz>
+        <iyz>0</iyz>
+      </inertia>
+    </inertial>
+    <collision name="AWR1642BOOST_collision">
+      <geometry>
+        <box>
+          <size> 0.2 0.4 0.01 </size>
+        </box>
+      </geometry>
+    </collision>
+
+    <!-- The visual is mostly a copy of the collision -->
+    <visual name="AWR1642BOOST_visual">
+      <geometry>
+        <box>
+          <size> 0.2 0.4 0.01 </size>
+        </box>
+      </geometry>
+    </visual>
+
+<sensor name="sensor_ray" type="ray">
+    <visualize>true</visualize>
+    <pose>0.1 0.0 0.0 -1.57079632679 -1.57079632679 0.0</pose>
+    <ray>
+      <scan>
+        <horizontal>
+          <samples>100</samples>
+          <min_angle>-0.523599</min_angle>
+          <max_angle>0.523599</max_angle>
+        </horizontal>
+        <vertical>
+          <samples>16</samples>
+          <min_angle>-0.261799</min_angle>
+          <max_angle>0.261799</max_angle>
+        </vertical>
+      </scan>
+      <range>
+        <min>0.05</min>
+        <max>80.0</max>
+      </range>
+    </ray>
+    <plugin name="plugin_1" filename="libgazebo_ros_block_laser.so">
+      <gaussianNoise>0.00</gaussianNoise>
+      <hokuyoMinIntensity>1</hokuyoMinIntensity>
+      <alwaysOn>true</alwaysOn>
+      <updateRate>5</updateRate>
+      <topicName>radar</topicName>
+      <frameName>base_link</frameName>
+    </plugin>
+  </sensor>
+  </link>
+
+
+  <!-- Give the base link a unique name -->
+  <link name="DCA1000EVM">
+
+    <!-- offset to simulate the  -->
+    <pose>-0.05 0 0.2 1.5708 0 1.5708</pose>
+   <inertial>
+     <mass>0.1</mass>
+     <inertia>
+       <ixx>0.000090623</ixx>
+       <iyy>0.000090623</iyy>
+       <izz>0.000091036</izz>
+       <ixy>0</ixy>
+       <ixz>0</ixz>
+       <iyz>0</iyz>
+     </inertia>
+   </inertial>
+    <collision name="DCA1000EVM_collision">
+      <geometry>
+        <box>
+          <size> 0.2 0.4 0.01 </size>
+        </box>
+      </geometry>
+    </collision>
+
+    <!-- The visual is mostly a copy of the collision -->
+    <visual name="DCA1000EVM_visual">
+      <geometry>
+        <box>
+          <size> 0.2 0.4 0.01 </size>
+        </box>
+      </geometry>
+    </visual>
+  </link>
+
+</model>
+</sdf>
