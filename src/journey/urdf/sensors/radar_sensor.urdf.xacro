@@ -12,13 +12,20 @@ xmlns:xacro="http://ros.org/wiki/xacro">
             </geometry>
         </collision>
 
-        <visual>
-            <origin xyz="0.2 0 0.2" rpy="0 0 0"/>
-            <geometry>
-                <box size="0.05 0.05 0.05"/>
-                <material name="blue"/>
-                <!-- <mesh filename="package://husky_description/meshes/accessories/dummy_camera.dae" /> -->
-            </geometry>
+        <visual name="AWR1642BOOST_visual">
+          <geometry>
+            <box>
+              <size> 0.2 0.4 0.01 </size>
+            </box>
+          </geometry>
+        </visual>
+
+        <visual name="DCA1000EVM_visual">
+          <geometry>
+            <box>
+              <size> 0.2 0.4 0.01 </size>
+            </box>
+          </geometry>
         </visual>
 
         <inertial>
