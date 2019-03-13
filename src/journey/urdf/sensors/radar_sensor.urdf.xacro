@@ -7,7 +7,7 @@ xmlns:xacro="http://ros.org/wiki/xacro">
 <link name="rad_link">
     <!-- Physics of the AWR1642 -->
 	<inertial>
-      	<mass value= "0.25"/>
+      	<mass value= "0.0"/>
       	<inertia ixx = "0.001087473" iyy="0.001087473" izz ="0.001087473" ixy="0" ixz="0" iyz="0"/>
     </inertial>
     <collision name="AWR1642BOOST_collision">
@@ -26,7 +26,7 @@ xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<!-- Physics for the DCA1000 component -->
    	<inertial>
-   		<mass value="0.25"/>
+   		<mass value="0.0"/>
     	<inertia ixx="0.000090623" iyy="0.000090623" izz="0.000090623" ixy="0" ixz="0" iyz="0"/>
    	</inertial>
     <collision name="DCA1000EVM_collision">
