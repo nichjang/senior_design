@@ -20,7 +20,7 @@ xmlns:xacro="http://ros.org/wiki/xacro">
     <visual name="AWR1642BOOST_visual">
 		<origin xyz="-0.14 0 0" rpy="1.5708 0 1.5708"/>
      	<geometry>
-        	<box size="0.2 0.4 0.01"/>
+        	<box size="0.1 0.2 0.01"/>
       	</geometry>
     </visual>
 
@@ -39,7 +39,7 @@ xmlns:xacro="http://ros.org/wiki/xacro">
     <visual name="DCA1000EVM_visual">
 		<origin xyz="-0.19 0 0" rpy="1.5708 0 1.5708"/>
     	<geometry>
-       		<box size = "0.2 0.4 0.01"/>
+       		<box size = "0.1 0.2 0.01"/>
     	</geometry>
     </visual>
 </link>
