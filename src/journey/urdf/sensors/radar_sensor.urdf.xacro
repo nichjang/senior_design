@@ -7,18 +7,18 @@ xmlns:xacro="http://ros.org/wiki/xacro">
 <link name="rad_link">
     <!-- Physics of the AWR1642 -->
 	<inertial>
-      	<mass value= "1.2"/>
+      	<mass value= "0.25"/>
       	<inertia ixx = "0.001087473" iyy="0.001087473" izz ="0.001087473" ixy="0" ixz="0" iyz="0"/>
     </inertial>
     <collision name="AWR1642BOOST_collision">
       	<geometry>
-        	<box size="0.2 0.4 0.01"/>
+        	<box size="0.1 0.2 0.01"/>
       	</geometry>
     </collision>
 
     <!-- The visual part of the boost -->
     <visual name="AWR1642BOOST_visual">
-		<origin xyz="0 0 0" rpy="1.5708 0 1.5708"/>
+		<origin xyz="-0.14 0 0" rpy="1.5708 0 1.5708"/>
      	<geometry>
         	<box size="0.2 0.4 0.01"/>
       	</geometry>
@@ -26,18 +26,18 @@ xmlns:xacro="http://ros.org/wiki/xacro">
 
 	<!-- Physics for the DCA1000 component -->
    	<inertial>
-   		<mass value="0.1"/>
+   		<mass value="0.25"/>
     	<inertia ixx="0.000090623" iyy="0.000090623" izz="0.000090623" ixy="0" ixz="0" iyz="0"/>
    	</inertial>
     <collision name="DCA1000EVM_collision">
       	<geometry>
-        	<box size="0.2 0.4 0.01"/>
+        	<box size="0.1 0.2 0.01"/>
       	</geometry>
     </collision>
 
 	<!-- Visuals of the DCA1000EVM -->
     <visual name="DCA1000EVM_visual">
-		<origin xyz="-0.05 0 0" rpy="1.5708 0 1.5708"/>
+		<origin xyz="-0.19 0 0" rpy="1.5708 0 1.5708"/>
     	<geometry>
        		<box size = "0.2 0.4 0.01"/>
     	</geometry>
