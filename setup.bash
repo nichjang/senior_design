@@ -19,9 +19,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
 
   sudo apt-get update
 
-  # Desktop-Full Install: (Recommended) : ROS, rqt, rviz, robot-generic
-  # libraries, 2D/3D simulators, navigation and 2D/3D perception
-  sudo apt-get -y install ros-kinetic-desktop-full
+  # Install all packages
+  bash install_packages.bash
 
   # In order to use rosdep, we have to initialize it.
   sudo rosdep init
@@ -33,22 +32,8 @@ if [[ "$OSTYPE" == "linux-gnu" ]]; then
   # frequently used command-line tool that enables you to easily download many
   # source trees for ROS packages with one command.
 
-  # Install hector quadrotor suite.
-  sudo apt-get -y install ros-kinetic-hector-*
-
-  # Install ardrone_autonomy.
-  sudo apt-get -y install ros-kinetic-ardrone-autonomy freeglut3-dev liblapack-dev libopenblas-dev
-
   # Link this project to your catkin workspace.
   ln -s $PROJECT_DIR_SRC ~/catkin_ws/src
-
-  # Install TI mmWave dependencies.
-  sudo apt-get -y install ros-kinetic-tf2-sensor-msgs ros-kinetic-tf2-bullet
-
-  # Install other dependencies.
-  sudo apt-get -y install ros-kinetic-control*
-  sudo apt-get -y install ros-kinetic-transmission*
-  sudo apt-get -y install ros-kinetic-joint*
 
   # Needed for TI mmWave Driver
   sudo adduser $USER dialout
