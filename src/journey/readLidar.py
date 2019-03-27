@@ -5,6 +5,9 @@
 import rospy
 from geometry_msgs.msg import Point
 from sensor_msgs.msg import PointCloud
+import tf2_ros
+import tf2_msgs.msg
+import geometry_msgs.msg
 
 firstIteration = True
 
@@ -15,7 +18,6 @@ firstIteration = True
 #The x,y,z is the point in free space (http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Point32.html)
 #will need the pose of the ardrone to get accurate localization (does 100 in the bottom row, then works up the 16 rows)
 def callback(data):
-	#print (data.points[0].x)
 	global firstIteration
 	if firstIteration:
 		firstIteration = False
@@ -26,6 +28,11 @@ def callback(data):
 			print "z: " + str(data.points[i].z)
 			print		
 
+#Used to read the pose of the base link
+def position(data):
+	print "xpose: " + str(data.transforms[0].transform.translation.x)
+	print "ypose: " + str(data.transforms[0].transform.translation.y)
+	print "zpose: " + str(data.transforms[0].transform.translation.z)
 
 def listener():
 	#used to connect to the ROS Master node (replace 10.145.236.187:11311 with Master host IP)
@@ -33,6 +40,8 @@ def listener():
 
 	#should be the name of the subscriber 
 	rospy.Subscriber('/radar', PointCloud, callback)
+
+	rospy.Subscriber('/tf', tf2_msgs.msg.TFMessage, position)
 
 	#keep reading ths subscriber continuously
 	rospy.spin()
