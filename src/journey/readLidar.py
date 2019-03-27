@@ -12,6 +12,8 @@ firstIteration = True
 #len(data.points) for the length of the data = number of points
 #data.points[i].(x y or z for the specific point)
 #callback = where it reads the data from the topic
+#The x,y,z is the point in free space (http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Point32.html)
+#will need the pose of the ardrone to get accurate localization (does 100 in the bottom row, then works up the 16 rows)
 def callback(data):
 	#print (data.points[0].x)
 	global firstIteration
