@@ -3,6 +3,7 @@
 #Plugin: gazebo_radar_plugin
 
 import rospy
+import time
 from geometry_msgs.msg import Point
 from sensor_msgs.msg import PointCloud
 import tf2_ros
@@ -18,6 +19,7 @@ firstIteration = True
 #The x,y,z is the point in free space (http://docs.ros.org/melodic/api/geometry_msgs/html/msg/Point32.html)
 #will need the pose of the ardrone to get accurate localization (does 100 in the bottom row, then works up the 16 rows)
 def callback(data):
+	startTime = time.time()
 	global firstIteration
 	if firstIteration:
 		firstIteration = False
@@ -26,7 +28,9 @@ def callback(data):
 			print "x: " + str(data.points[i].x)
 			print "y: " + str(data.points[i].y)
 			print "z: " + str(data.points[i].z)
-			print		
+			print	
+	print ("Time to spin = %s" % (time.time() - startTime))
+		
 
 #Used to read the pose of the base link
 def position(data):
