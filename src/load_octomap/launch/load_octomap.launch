@@ -1,5 +1,5 @@
 <launch>
-
+    <param name="use_sim_time" value="true" />
     <arg name="path" default="$(find journey)/maps/house.bt"/>
 
     <node pkg="octomap_server" type="octomap_server_node" name="octomap_talker" output="screen" args="$(arg path)">
