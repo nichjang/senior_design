@@ -1,5 +1,11 @@
 <launch>
 
+  <include file="$(find ardrone_config)/launch/move_group.launch">
+    <arg name="allow_trajectory_execution" value="true"/>
+    <arg name="fake_execution" value="false"/>
+    <arg name="info" value="false"/>
+  </include>
+
   <!-- By default, we do not start a database (it can be large) -->
   <arg name="db" default="false" />
   <!-- Allow user to specify database location -->
@@ -24,7 +30,11 @@
   </include>
 
   <!-- If needed, broadcast static tf for robot root -->
-    <node pkg="tf" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world base_link 100" />
+    <!-- <node pkg="tf" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 world base_link 100" /> -->
+    <node pkg="tf" type="static_transform_publisher" name="world_to_footprint" args="0 0 0 0 0 0 world nav 5" />
+    <node pkg="tf" type="static_transform_publisher" name="virtual_joint_broadcaster_0" args="0 0 0 0 0 0 base_footprint base_link 5" />
+    <node pkg="tf" type="static_transform_publisher" name="odom_map_broadcaster" args="0 0 0 0 0 0 map world 5" />
+
 
 
   <!-- We do not have a robot connected, so publish fake joint states -->
