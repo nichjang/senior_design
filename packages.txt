@@ -1,9 +1,8 @@
-ros-kinetic-desktop-full
-ros-kinetic-hector-*
-ros-kinetic-ardrone-autonomy 
 freeglut3-dev 
 liblapack-dev 
 libopenblas-dev
+libsdl2-dev
+libsdl-dev
 ros-kinetic-tf2-sensor-msgs 
 ros-kinetic-tf2-bullet
 ros-kinetic-control*
@@ -12,5 +11,8 @@ ros-kinetic-joint*
 ros-kinetic-moveit
 ros-kinetic-octomap
 ros-kinetic-octomap-mapping
-libsdl2-dev
-libsdl-dev
+ros-kinetic-desktop-full
+ros-kinetic-hector-*
+ros-kinetic-ardrone-autonomy 
+ros-kinetic-serial
+ros-kinetic-aruco

@@ -19,3 +19,7 @@
 [submodule "src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone"]
 	path = src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone
 	url = https://github.com/eYSIP-2017/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone.git
+[submodule "src/aruco_mapping"]
+	path = src/aruco_mapping
+	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
+	branch = master
