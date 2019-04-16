@@ -38,3 +38,6 @@
 	path = src/aruco_mapping
 	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
 	branch = master
+[submodule "src/Autonomous-Flight-ROS"]
+	path = src/Autonomous-Flight-ROS
+	url = https://github.com/AlessioTonioni/Autonomous-Flight-ROS
