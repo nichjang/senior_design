@@ -10,6 +10,8 @@ from geometry_msgs.msg import PoseStamped
 import tf2_ros
 import tf2_msgs.msg
 import geometry_msgs.msg
+from geometry_msgs.msg import Point
+from sensor_msgs.msg import PointCloud
 
 firstIteration = True
 

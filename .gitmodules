@@ -34,3 +34,7 @@
 [submodule "src/catkin_simple"]
 	path = src/catkin_simple
 	url = https://github.com/catkin/catkin_simple
+[submodule "src/aruco_mapping"]
+	path = src/aruco_mapping
+	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
+	branch = master
