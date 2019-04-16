@@ -22,7 +22,6 @@ xmlns:xacro="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface">
 
     <xacro:include filename="$(find journey)/urdf/sensors/radar_sensor.urdf.xacro" />
     <xacro:radar/>
-
     
 </robot>
   

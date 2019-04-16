@@ -6,6 +6,7 @@ import rospy
 import time
 from geometry_msgs.msg import Point
 from sensor_msgs.msg import PointCloud
+from geometry_msgs.msg import PoseStamped
 import tf2_ros
 import tf2_msgs.msg
 import geometry_msgs.msg
@@ -43,7 +44,7 @@ def listener():
 	rospy.init_node('10.145.236.187:11311', anonymous=True)
 
 	#should be the name of the subscriber 
-	rospy.Subscriber('/radar', PointCloud, callback)
+	# rospy.Subscriber('/radar', PointCloud, callback)
 
 	rospy.Subscriber('/tf', tf2_msgs.msg.TFMessage, position)
 

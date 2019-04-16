@@ -19,3 +19,18 @@
 [submodule "src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone"]
 	path = src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone
 	url = https://github.com/eYSIP-2017/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone.git
+[submodule "src/ardrone_autonomy"]
+	path = src/ardrone_autonomy
+	url = git://github.com/tum-vision/ardrone_autonomy.git
+[submodule "src/pid_control_ardrone"]
+	path = src/pid_control_ardrone
+	url = https://github.com/justagist/pid_control_ardrone
+[submodule "src/point_cloud_converter"]
+	path = src/point_cloud_converter
+	url = https://github.com/pal-robotics-forks/point_cloud_converter
+[submodule "src/mpl_ros"]
+	path = src/mpl_ros
+	url = https://github.com/sikang/mpl_ros
+[submodule "src/catkin_simple"]
+	path = src/catkin_simple
+	url = https://github.com/catkin/catkin_simple
