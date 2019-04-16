@@ -28,12 +28,6 @@
 [submodule "src/point_cloud_converter"]
 	path = src/point_cloud_converter
 	url = https://github.com/pal-robotics-forks/point_cloud_converter
-[submodule "src/mpl_ros"]
-	path = src/mpl_ros
-	url = https://github.com/sikang/mpl_ros
-[submodule "src/catkin_simple"]
-	path = src/catkin_simple
-	url = https://github.com/catkin/catkin_simple
 [submodule "src/aruco_mapping"]
 	path = src/aruco_mapping
 	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
