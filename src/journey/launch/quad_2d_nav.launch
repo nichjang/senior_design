@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+
+<launch>
+
+  <!-- <env name="ROSCONSOLE_CONFIG_FILE" value="$(find quad_control)/custom_rosconsole.conf"/> -->
+  <arg name="headless" default="true"/>
+  <arg name="gui" default="true"/>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find journey)/worlds/willow_garage.world"/> 
+    <arg name="debug" value="false" /> 
+    <arg name="paused" value="true"/>
+    <arg name="headless" value="$(arg headless)"/>
+    <arg name="gui" value="$(arg gui)"/>
+  </include>
+
+  <!-- Load a Map  -->
+  <node name="map_server" pkg="map_server" type="map_server" args=" $(find journey)/maps/willow_garage.yaml"/>
+
+  <include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
+    <arg name="model" value="$(find journey)/urdf/quadrotor_sensors.urdf.xacro"/>
+  </include> 
+ 
+  <!-- Load AMCL  -->
+  <include file="$(find journey)/launch/amcl_quad.launch" />
+
+  <!-- Load Navigation Stack  -->
+  <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
+    <remap from="odom" to="/ground_truth/state" />
+    <rosparam file="$(find journey)/resource/costmap_common_params.yaml" command="load" ns="global_costmap" />
+    <rosparam file="$(find journey)/resource/costmap_common_params.yaml" command="load" ns="local_costmap" />
+    <rosparam file="$(find journey)/resource/local_costmap_params.yaml" command="load" />
+    <rosparam file="$(find journey)/resource/global_costmap_params.yaml" command="load" />
+    <rosparam file="$(find journey)/resource/base_local_planner_params.yaml" command="load" />
+  </node>
+
+  <include file="$(find point_cloud_converter)/launch/point_cloud_converter.launch"/> 
+
+  <node name="pointcloud_to_laserscan" pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node">
+    <remap from="cloud_in" to="/radar2" />
+    <param name="range_max" value="10.0" />
+  </node>
+
+  <node pkg="rviz" type="rviz" name="rviz" args="-d $(find journey)/resource/quad_2d_nav.rviz" output="screen"/>
+
+</launch>

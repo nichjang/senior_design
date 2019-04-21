@@ -32,6 +32,9 @@
 	path = src/aruco_mapping
 	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
 	branch = master
-[submodule "src/--force"]
+[submodule "src/Autonomous-Flight-ROS"]
 	path = src/Autonomous-Flight-ROS
 	url = https://github.com/AlessioTonioni/Autonomous-Flight-ROS
+[submodule "src/ROS_quadrotor_simulator"]
+	path = src/ROS_quadrotor_simulator
+	url = https://github.com/wilselby/ROS_quadrotor_simulator

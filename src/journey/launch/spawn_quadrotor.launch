@@ -33,5 +33,7 @@
     <param name="odometry_topic" value="ground_truth/state" />
     <param name="frame_id" value="nav" />
   </node>
-  <node name="hector_pose_estimation" pkg="hector_pose_estimation" type="hector_pose_estimation_node" output="screen"/>
+
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher"/>
+
 </launch>
