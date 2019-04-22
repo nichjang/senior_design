@@ -1,40 +1,15 @@
 [submodule "src/geometry2"]
 	path = src/geometry2
 	url = https://github.com/ros/geometry2
-[submodule "src/nanomap_ros"]
-	path = src/nanomap_ros
-	url = https://github.com/peteflorence/nanomap_ros.git
-[submodule "src/serial"]
-	path = src/serial
-	url = https://github.com/wjwwood/serial.git
-[submodule "src/gazebo_radar_plugin"]
-	path = src/gazebo_radar_plugin
-	url = https://github.com/ros-simulation/gazebo_radar_plugin.git
-[submodule "src/tum_simulator"]
-	path = src/tum_simulator
-	url = https://github.com/angelsantamaria/tum_simulator.git
-[submodule "src/laserTest/gazebo_ros_pkgs"]
-	path = src/laserTest/gazebo_ros_pkgs
-	url = https://github.com/ros-simulation/gazebo_ros_pkgs
-[submodule "src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone"]
-	path = src/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone
-	url = https://github.com/eYSIP-2017/eYSIP-2017_Navigation-in-Indoor-Environments-using-drone.git
 [submodule "src/ardrone_autonomy"]
 	path = src/ardrone_autonomy
 	url = git://github.com/tum-vision/ardrone_autonomy.git
 [submodule "src/pid_control_ardrone"]
 	path = src/pid_control_ardrone
 	url = https://github.com/justagist/pid_control_ardrone
+[submodule "src/tum_simulator"]
+	path = src/tum_simulator
+	url = https://github.com/angelsantamaria/tum_simulator.git
 [submodule "src/point_cloud_converter"]
 	path = src/point_cloud_converter
-	url = https://github.com/pal-robotics-forks/point_cloud_converter
-[submodule "src/aruco_mapping"]
-	path = src/aruco_mapping
-	url = https://github.com/SmartRoboticSystems/aruco_mapping.git
-	branch = master
-[submodule "src/Autonomous-Flight-ROS"]
-	path = src/Autonomous-Flight-ROS
-	url = https://github.com/AlessioTonioni/Autonomous-Flight-ROS
-[submodule "src/ROS_quadrotor_simulator"]
-	path = src/ROS_quadrotor_simulator
-	url = https://github.com/wilselby/ROS_quadrotor_simulator
+	url = git@github.com:blrichards/point_cloud_converter.git
